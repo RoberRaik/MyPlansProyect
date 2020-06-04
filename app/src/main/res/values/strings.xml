@@ -23,12 +23,20 @@
     <string name="schedule">Horario: </string>
 
     //DATABASE MANAGER
+    <string name="databaseManagerTitle">DATABASE MANAGER</string>
+
     <string name="fieldID">ID</string>
     <string name="fieldName">Nombre</string>
     <string name="fieldDescription">Descripcion</string>
     <string name="fieldGPS">Localizacion</string>
     <string name="fieldPhone">Telefono</string>
     <string name="fieldSchedule">Horario</string>
+
     <string name="buttonSend">ENVIAR</string>
+    <string name="buttonQuery">CONSULTAR</string>
+    <string name="buttonModify">MODIFICAR</string>
+    <string name="buttonDelete">ELIMINAR</string>
+
+    <string name="buttonClear">LIMPIAR CELDAS</string>
 
 </resources>

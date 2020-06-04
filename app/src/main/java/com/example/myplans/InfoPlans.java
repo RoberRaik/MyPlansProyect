@@ -2,6 +2,7 @@ package com.example.myplans;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,8 +20,8 @@ public class InfoPlans extends AppCompatActivity {
 
     ConnectionSQLiteHelper conn;
 
-    String[] phoneNumbers = {"null", "tel:918941738", "tel:918013110", "tel:925099714", "tel:918088904"};
-    String[] latitude = {"null", "40.1045", "40.1041", ""};
+    String phoneNumbers;
+    String[] latitude = {"null", "40.1045", "40.1041"};
     String[] longitude = {"null", "-3.6911", "-3.6916"};
 
     @Override
@@ -64,46 +65,31 @@ public class InfoPlans extends AppCompatActivity {
             textGPS.setText("Ubicación: "+cursor.getString(2));
             textPhone.setText("Teléfono: "+cursor.getString(3));
             textSchedule.setText("Horario: "+cursor.getString(4));
+            cursor.moveToFirst();
+            phoneNumbers = cursor.getString(3);
             cursor.close();
+
+
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "El documento no existe", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No hay datos para este plan", Toast.LENGTH_LONG).show();
             limpiar();
         }
 
-        switch(planID) {
-            case 1:
-                imageMain.setImageResource(R.drawable.background_templodelsol);
-                imagePhoto1.setImageResource(R.drawable.photo_templodelsol1);
-                imagePhoto2.setImageResource(R.drawable.photo_templodelsol2);
-                imagePhoto3.setImageResource(R.drawable.photo_templodelsol3);
-                break;
-            case 2:
-                imageMain.setImageResource(R.drawable.background_telepizza);
-                imagePhoto1.setImageResource(R.drawable.photo_telepizza1);
-                imagePhoto2.setImageResource(R.drawable.photo_telepizza2);
-                imagePhoto3.setImageResource(R.drawable.photo_telepizza3);
-                break;
-            case 3:
-                imageMain.setImageResource(R.drawable.background_nuova);
-                imagePhoto1.setImageResource(R.drawable.photo_telepizza1);
-                imagePhoto2.setImageResource(R.drawable.photo_telepizza2);
-                imagePhoto3.setImageResource(R.drawable.photo_telepizza3);
-                break;
-            case 4:
-                imageMain.setImageResource(R.drawable.background_vega);
-                imagePhoto1.setImageResource(R.drawable.photo_telepizza1);
-                imagePhoto2.setImageResource(R.drawable.photo_telepizza2);
-                imagePhoto3.setImageResource(R.drawable.photo_telepizza3);
-                break;
-        }
+        Context c = getApplicationContext();
+        int idMain = c.getResources().getIdentifier("drawable/"+"background_"+planID, null, c.getPackageName());
+        int idFirst = c.getResources().getIdentifier("drawable/"+"photo_first_"+planID, null, c.getPackageName());
+        int idSecond = c.getResources().getIdentifier("drawable/"+"photo_second_"+planID, null, c.getPackageName());
+        int idThird = c.getResources().getIdentifier("drawable/"+"photo_third_"+planID, null, c.getPackageName());
+
+        imageMain.setImageResource(idMain);
+        imagePhoto1.setImageResource(idFirst);
+        imagePhoto2.setImageResource(idSecond);
+        imagePhoto3.setImageResource(idThird);
     }
 
     public void makeCall(View v) {
-        Bundle extras = getIntent().getExtras();
-        int planID = extras.getInt("planID");
-
         Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse(phoneNumbers[planID]));
+        intent.setData(Uri.parse("tel:"+phoneNumbers));
         startActivity(intent);
     }
 
@@ -118,7 +104,7 @@ public class InfoPlans extends AppCompatActivity {
                 .appendPath("dir")
                 .appendPath("")
                 .appendQueryParameter("api", "1")
-                .appendQueryParameter("destination", latitude[planID]+","+longitude[planID]);
+                .appendQueryParameter("destination", latitude[planID-1000]+","+longitude[planID-1000]);
 
         startActivity(new Intent(Intent.ACTION_VIEW, directionsBuilder.build()));
 

@@ -1,6 +1,5 @@
 package com.example.myplans;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -33,10 +32,10 @@ import com.google.android.gms.tasks.Task;
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    TextView textLocation, textTitle, textPermission, textprueba;
-    LinearLayout linearLayout1, linearLayout2, linearLayout3, linearLayout4, linearLayout5, linearLayout6, linearLayout7, linearLayout8;
-    ImageView imageViewPlan1, imageViewPlan2, imageViewPlan3, imageViewPlan4, imageViewPlan5, imageViewPlan6, imageViewPlan7, imageViewPlan8;
-    ScrollView scrollPlans;
+    TextView textLocation, textTitle, textPermission, textprueba, textCity;
+    LinearLayout planSeseñaViejo1, planSeseñaViejo2, planSeseñaViejo3, planSeseñaViejo4, planSeseñaViejo5, planSeseñaViejo6, planSeseñaViejo7, planSeseñaViejo8, planQuiñon1, planQuiñon2, planQuiñon3, planQuiñon4, planQuiñon5, planQuiñon6, planQuiñon7, planQuiñon8, planSeseñaNuevo1, planSeseñaNuevo2, planSeseñaNuevo3, planSeseñaNuevo4, planSeseñaNuevo5, planSeseñaNuevo6, planSeseñaNuevo7, planSeseñaNuevo8;
+    ImageView imageViewPlanSeseñaViejo1, imageViewPlanSeseñaViejo2, imageViewPlanSeseñaViejo3, imageViewPlanSeseñaViejo4, imageViewPlanSeseñaViejo5, imageViewPlanSeseñaViejo6, imageViewPlanSeseñaViejo7, imageViewPlanSeseñaViejo8, imageViewPlanQuiñon1, imageViewPlanQuiñon2, imageViewPlanQuiñon3, imageViewPlanQuiñon4, imageViewPlanQuiñon5, imageViewPlanQuiñon6, imageViewPlanQuiñon7, imageViewPlanQuiñon8, imageViewPlanSeseñaNuevo1, imageViewPlanSeseñaNuevo2, imageViewPlanSeseñaNuevo3, imageViewPlanSeseñaNuevo4, imageViewPlanSeseñaNuevo5, imageViewPlanSeseñaNuevo6, imageViewPlanSeseñaNuevo7, imageViewPlanSeseñaNuevo8;
+    ScrollView scrollViewPlansSeseñaViejo, scrollViewPlansSeseñaNuevo, scrollViewPlansQuiñon;
 
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
@@ -45,38 +44,81 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
     int planID;
     int cityID;
 
+    double locationLatitudeDouble, locationLongitudeDouble;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         textLocation = findViewById(R.id.textViewLocation);
+        textCity = findViewById(R.id.textViewCity);
         textTitle = findViewById(R.id.textViewTitle);
         textPermission = findViewById(R.id.textViewPermission);
-        scrollPlans = findViewById(R.id.scrollViewPlans);
+        scrollViewPlansSeseñaViejo = findViewById(R.id.scrollViewPlansSeseñaViejo);
+        scrollViewPlansSeseñaNuevo = findViewById(R.id.scrollViewPlansSeseñaNuevo);
+        scrollViewPlansQuiñon = findViewById(R.id.scrollViewPlansQuiñon);
 
         textprueba = findViewById(R.id.textViewprueba);
 
-        imageViewPlan1 = findViewById(R.id.imageViewPlan1);
-        imageViewPlan2 = findViewById(R.id.imageViewPlan2);
-        imageViewPlan3 = findViewById(R.id.imageViewPlan3);
-        imageViewPlan4 = findViewById(R.id.imageViewPlan4);
-        imageViewPlan5 = findViewById(R.id.imageViewPlan5);
-        imageViewPlan6 = findViewById(R.id.imageViewPlan6);
-        imageViewPlan7 = findViewById(R.id.imageViewPlan7);
-        imageViewPlan8 = findViewById(R.id.imageViewPlan8);
+        imageViewPlanSeseñaViejo1 = findViewById(R.id.imageViewPlanSeseñaViejo1);
+        imageViewPlanSeseñaViejo2 = findViewById(R.id.imageViewPlanSeseñaViejo2);
+        imageViewPlanSeseñaViejo3 = findViewById(R.id.imageViewPlanSeseñaViejo3);
+        imageViewPlanSeseñaViejo4 = findViewById(R.id.imageViewPlanSeseñaViejo4);
+        imageViewPlanSeseñaViejo5 = findViewById(R.id.imageViewPlanSeseñaViejo5);
+        imageViewPlanSeseñaViejo6 = findViewById(R.id.imageViewPlanSeseñaViejo6);
+        imageViewPlanSeseñaViejo7 = findViewById(R.id.imageViewPlanSeseñaViejo7);
+        imageViewPlanSeseñaViejo8 = findViewById(R.id.imageViewPlanSeseñaViejo8);
 
-        linearLayout1 = findViewById(R.id.linearLayout1);
-        linearLayout2 = findViewById(R.id.linearLayout2);
-        linearLayout3 = findViewById(R.id.linearLayout3);
-        linearLayout4 = findViewById(R.id.linearLayout4);
-        linearLayout5 = findViewById(R.id.linearLayout5);
-        linearLayout6 = findViewById(R.id.linearLayout6);
-        linearLayout7 = findViewById(R.id.linearLayout7);
-        linearLayout8 = findViewById(R.id.linearLayout8);
+        planSeseñaViejo1 = findViewById(R.id.planSeseñaViejo1);
+        planSeseñaViejo2 = findViewById(R.id.planSeseñaViejo2);
+        planSeseñaViejo3 = findViewById(R.id.planSeseñaViejo3);
+        planSeseñaViejo4 = findViewById(R.id.planSeseñaViejo4);
+        planSeseñaViejo5 = findViewById(R.id.planSeseñaViejo5);
+        planSeseñaViejo6 = findViewById(R.id.planSeseñaViejo6);
+        planSeseñaViejo7 = findViewById(R.id.planSeseñaViejo7);
+        planSeseñaViejo8 = findViewById(R.id.planSeseñaViejo8);
+
+        imageViewPlanQuiñon1 = findViewById(R.id.imageViewPlanQuiñon1);
+        imageViewPlanQuiñon2 = findViewById(R.id.imageViewPlanQuiñon2);
+        imageViewPlanQuiñon3 = findViewById(R.id.imageViewPlanQuiñon3);
+        imageViewPlanQuiñon4 = findViewById(R.id.imageViewPlanQuiñon4);
+        imageViewPlanQuiñon5 = findViewById(R.id.imageViewPlanQuiñon5);
+        imageViewPlanQuiñon6 = findViewById(R.id.imageViewPlanQuiñon6);
+        imageViewPlanQuiñon7 = findViewById(R.id.imageViewPlanQuiñon7);
+        imageViewPlanQuiñon8 = findViewById(R.id.imageViewPlanQuiñon8);
+
+        planQuiñon1 = findViewById(R.id.planQuiñon1);
+        planQuiñon2 = findViewById(R.id.planQuiñon2);
+        planQuiñon3 = findViewById(R.id.planQuiñon3);
+        planQuiñon4 = findViewById(R.id.planQuiñon4);
+        planQuiñon5 = findViewById(R.id.planQuiñon5);
+        planQuiñon6 = findViewById(R.id.planQuiñon6);
+        planQuiñon7 = findViewById(R.id.planQuiñon7);
+        planQuiñon8 = findViewById(R.id.planQuiñon8);
+
+        imageViewPlanSeseñaNuevo1 = findViewById(R.id.imageViewPlanSeseñaNuevo1);
+        imageViewPlanSeseñaNuevo2 = findViewById(R.id.imageViewPlanSeseñaNuevo2);
+        imageViewPlanSeseñaNuevo3 = findViewById(R.id.imageViewPlanSeseñaNuevo3);
+        imageViewPlanSeseñaNuevo4 = findViewById(R.id.imageViewPlanSeseñaNuevo4);
+        imageViewPlanSeseñaNuevo5 = findViewById(R.id.imageViewPlanSeseñaNuevo5);
+        imageViewPlanSeseñaNuevo6 = findViewById(R.id.imageViewPlanSeseñaNuevo6);
+        imageViewPlanSeseñaNuevo7 = findViewById(R.id.imageViewPlanSeseñaNuevo7);
+        imageViewPlanSeseñaNuevo8 = findViewById(R.id.imageViewPlanSeseñaNuevo8);
+
+        planSeseñaNuevo1 = findViewById(R.id.planSeseñaNuevo1);
+        planSeseñaNuevo2 = findViewById(R.id.planSeseñaNuevo2);
+        planSeseñaNuevo3 = findViewById(R.id.planSeseñaNuevo3);
+        planSeseñaNuevo4 = findViewById(R.id.planSeseñaNuevo4);
+        planSeseñaNuevo5 = findViewById(R.id.planSeseñaNuevo5);
+        planSeseñaNuevo6 = findViewById(R.id.planSeseñaNuevo6);
+        planSeseñaNuevo7 = findViewById(R.id.planSeseñaNuevo7);
+        planSeseñaNuevo8 = findViewById(R.id.planSeseñaNuevo8);
 
 
-        scrollPlans.setVisibility(View.INVISIBLE);
+        scrollViewPlansSeseñaViejo.setVisibility(View.INVISIBLE);
+        scrollViewPlansSeseñaNuevo.setVisibility(View.INVISIBLE);
+        scrollViewPlansQuiñon.setVisibility(View.INVISIBLE);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -109,38 +151,16 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
                                     textLocation.setText("No se encuentra localizacion");
                                     textTitle.setText("Localizacion no encontrada");
                                 } else {
-                                    double locationLatitudeDouble = location.getLatitude();
-                                    double locationLongitudeDouble = location.getLongitude();
-
-                                    String locationLatitudeString = String.valueOf(locationLatitudeDouble);
-                                    String locationLongitudeString = String.valueOf(locationLongitudeDouble);
-
-                                    textLocation.setText(String.format("%s %s", locationLatitudeString, locationLongitudeString));
-
-                                    if(locationLatitudeDouble >= 40.094276 && locationLatitudeDouble <= 40.113541 && locationLongitudeDouble >= -3.710897 && locationLongitudeDouble <= -3.674977){
-                                        city = "Seseña";
-                                        cityID = 1;
-                                        scrollPlans.setVisibility(View.VISIBLE);
-                                    }
-
-                                    if(locationLatitudeDouble >= 40.120195 && locationLatitudeDouble <= 40.139784 && locationLongitudeDouble >= -3.687630 && locationLongitudeDouble <= -3.660807){
-                                        city = "El Quiñón";
-                                        cityID = 2;
-                                        scrollPlans.setVisibility(View.VISIBLE);
-                                    }
-
-                                    if(city != null){
-                                        textTitle.setText("Estás en: "+city);
-                                    }else{
-                                        scrollPlans.setVisibility(View.INVISIBLE);
-                                        textTitle.setText("Fuera de la sagra");
-                                    }
+                                    requestNewLocationData();
+                                    locationLatitudeDouble = location.getLatitude();
+                                    locationLongitudeDouble = location.getLongitude();
+                                    updateScrollViews();
                                 }
                             }
                         }
                 );
             } else {
-                Toast.makeText(this, "Enciende la localizacion", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Activa la localizacion", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
             }
@@ -149,43 +169,178 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
         }
     }
 
+    public void updateScrollViews(){
+        String locationLatitudeString = String.valueOf(locationLatitudeDouble);
+        String locationLongitudeString = String.valueOf(locationLongitudeDouble);
+
+        textLocation.setText(String.format("%s %s", locationLatitudeString, locationLongitudeString));
+
+        if(locationLatitudeDouble >= 40.094276 && locationLatitudeDouble <= 40.113541 && locationLongitudeDouble >= -3.710897 && locationLongitudeDouble <= -3.674977){
+            city = "Seseña Viejo";
+            cityID = 1;
+        }
+
+        if(locationLatitudeDouble >= 40.120195 && locationLatitudeDouble <= 40.139784 && locationLongitudeDouble >= -3.687630 && locationLongitudeDouble <= -3.660807){
+            city = "El Quiñón";
+            cityID = 2;
+        }
+
+        if(locationLatitudeDouble >= 40.0990 && locationLatitudeDouble <= 40.1163 && locationLongitudeDouble >= -3.6669 && locationLongitudeDouble <= -3.6301){
+            city = "Seseña Nuevo";
+            cityID = 3;
+        }
+
+        if(city != null){
+            textTitle.setText("Estás en: "+city);
+            String cityString = String.valueOf(cityID);
+            textCity.setText(cityString);
+            switch(cityID) {
+                case 1:
+                    scrollViewPlansSeseñaViejo.setVisibility(View.VISIBLE);
+                    scrollViewPlansSeseñaNuevo.setVisibility(View.GONE);
+                    scrollViewPlansQuiñon.setVisibility(View.GONE);
+                    break;
+                case 2:
+                    scrollViewPlansSeseñaViejo.setVisibility(View.GONE);
+                    scrollViewPlansSeseñaNuevo.setVisibility(View.GONE);
+                    scrollViewPlansQuiñon.setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    scrollViewPlansSeseñaViejo.setVisibility(View.GONE);
+                    scrollViewPlansSeseñaNuevo.setVisibility(View.VISIBLE);
+                    scrollViewPlansQuiñon.setVisibility(View.GONE);
+                    break;
+            }
+
+        }else{
+            scrollViewPlansSeseñaViejo.setVisibility(View.INVISIBLE);
+            scrollViewPlansSeseñaNuevo.setVisibility(View.INVISIBLE);
+            scrollViewPlansQuiñon.setVisibility(View.INVISIBLE);
+            textTitle.setText("Fuera de la sagra");
+        }
+    }
+
+    public void refresh(View v){
+        getLastLocation();
+    }
+
     public void buttonInfoPlan1(View v) {
-        planID = 1;
+        switch(cityID) {
+            case 1:
+                planID = 1001;
+                break;
+            case 2:
+                planID = 2001;
+                break;
+            case 3:
+                planID = 3001;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan2(View v) {
-        planID = 2;
+        switch(cityID) {
+            case 1:
+                planID = 1002;
+                break;
+            case 2:
+                planID = 2002;
+                break;
+            case 3:
+                planID = 3002;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan3(View v) {
-        planID = 3;
+        switch(cityID) {
+            case 1:
+                planID = 1003;
+                break;
+            case 2:
+                planID = 2003;
+                break;
+            case 3:
+                planID = 3003;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan4(View v) {
-        planID = 4;
+        switch(cityID) {
+            case 1:
+                planID = 1004;
+                break;
+            case 2:
+                planID = 2004;
+                break;
+            case 3:
+                planID = 3004;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan5(View v) {
-        planID = 5;
+        switch(cityID) {
+            case 1:
+                planID = 1005;
+                break;
+            case 2:
+                planID = 2005;
+                break;
+            case 3:
+                planID = 3005;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan6(View v) {
-        planID = 6;
+        switch(cityID) {
+            case 1:
+                planID = 1006;
+                break;
+            case 2:
+                planID = 2006;
+                break;
+            case 3:
+                planID = 3006;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan7(View v) {
-        planID = 7;
+        switch(cityID) {
+            case 1:
+                planID = 1007;
+                break;
+            case 2:
+                planID = 2007;
+                break;
+            case 3:
+                planID = 3007;
+                break;
+        }
         openIntent();
     }
 
     public void buttonInfoPlan8(View v) {
-        planID = 8;
+        switch(cityID) {
+            case 1:
+                planID = 1008;
+                break;
+            case 2:
+                planID = 2008;
+                break;
+            case 3:
+                planID = 3008;
+                break;
+        }
         openIntent();
     }
 
@@ -249,10 +404,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastLocation();
                 textPermission.setText("Permiso concedido");
-                scrollPlans.setForeground(null);
             } else {
-                scrollPlans.setVisibility(View.VISIBLE);
-                scrollPlans.setForeground(getDrawable(R.drawable.gps_disabled));
                 textPermission.setText("Permiso denegado");
                 textTitle.setText("Permisos denegados");
             }
@@ -270,113 +422,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (position) {
-            case 0:
-                if (cityID == 1){
-                    linearLayout1.setBackgroundResource(R.drawable.background_blur_templodelsol);
-                    linearLayout2.setBackgroundResource(R.drawable.background_blur_telepizza);
-                    linearLayout3.setBackgroundResource(R.drawable.background_blur_nuova);
-                    linearLayout4.setBackgroundResource(R.drawable.background_blur_vega);
-                    linearLayout5.setBackgroundResource(R.drawable.background_blur_forchettone);
-                    linearLayout6.setBackgroundResource(R.drawable.background_blur_cabalito);
-                    linearLayout7.setBackgroundResource(R.drawable.background_blur_hongkong);
-                    linearLayout8.setBackgroundResource(R.drawable.background_blur_asador);
 
-                    imageViewPlan1.setImageResource(R.drawable.logo_templodelsol);
-                    imageViewPlan2.setImageResource(R.drawable.logo_telepizza);
-                    imageViewPlan3.setImageResource(R.drawable.logo_nuova);
-                    imageViewPlan4.setImageResource(R.drawable.logo_vega);
-                    imageViewPlan5.setImageResource(R.drawable.logo_forchettone);
-                    imageViewPlan6.setImageResource(R.drawable.logo_cabalito);
-                    imageViewPlan7.setImageResource(R.drawable.logo_hongkong);
-                    imageViewPlan8.setImageResource(R.drawable.logo_asador);
-
-                    imageViewPlan1.setBackgroundColor(0xCD000000);
-
-                    linearLayout1.setVisibility(View.VISIBLE);
-                    linearLayout2.setVisibility(View.VISIBLE);
-                    linearLayout3.setVisibility(View.VISIBLE);
-                    linearLayout4.setVisibility(View.VISIBLE);
-                    linearLayout5.setVisibility(View.VISIBLE);
-                    linearLayout6.setVisibility(View.VISIBLE);
-                    linearLayout7.setVisibility(View.VISIBLE);
-                    linearLayout8.setVisibility(View.VISIBLE);
-
-                    imageViewPlan1.setVisibility(View.VISIBLE);
-                    imageViewPlan2.setVisibility(View.VISIBLE);
-                    imageViewPlan3.setVisibility(View.VISIBLE);
-                    imageViewPlan4.setVisibility(View.VISIBLE);
-                    imageViewPlan5.setVisibility(View.VISIBLE);
-                    imageViewPlan6.setVisibility(View.VISIBLE);
-                    imageViewPlan7.setVisibility(View.VISIBLE);
-                    imageViewPlan8.setVisibility(View.VISIBLE);
-                }
-                if (cityID == 2){
-                    linearLayout1.setBackgroundResource(R.drawable.background_blur_rollodelpollo);
-                    linearLayout2.setVisibility(View.INVISIBLE);
-                    linearLayout3.setVisibility(View.INVISIBLE);
-                    linearLayout4.setVisibility(View.INVISIBLE);
-                    linearLayout5.setVisibility(View.INVISIBLE);
-                    linearLayout6.setVisibility(View.INVISIBLE);
-                    linearLayout7.setVisibility(View.INVISIBLE);
-                    linearLayout8.setVisibility(View.INVISIBLE);
-
-                    imageViewPlan1.setImageResource(R.drawable.logo_rollodelpollo);
-                    imageViewPlan2.setVisibility(View.INVISIBLE);
-                    imageViewPlan3.setVisibility(View.INVISIBLE);
-                    imageViewPlan4.setVisibility(View.INVISIBLE);
-                    imageViewPlan5.setVisibility(View.INVISIBLE);
-                    imageViewPlan6.setVisibility(View.INVISIBLE);
-                    imageViewPlan7.setVisibility(View.INVISIBLE);
-                    imageViewPlan8.setVisibility(View.INVISIBLE);
-
-                    imageViewPlan1.setBackgroundColor(0xCDFFFFFF);
-                }
-
-                break;
-            case 1:
-                linearLayout1.setBackgroundResource(R.drawable.background_blur_vega);
-                linearLayout2.setVisibility(View.INVISIBLE);
-                linearLayout3.setVisibility(View.INVISIBLE);
-                linearLayout4.setVisibility(View.INVISIBLE);
-                linearLayout5.setVisibility(View.INVISIBLE);
-                linearLayout6.setVisibility(View.INVISIBLE);
-                linearLayout7.setVisibility(View.INVISIBLE);
-                linearLayout8.setVisibility(View.INVISIBLE);
-
-                imageViewPlan1.setImageResource(R.drawable.logo_vega);
-                imageViewPlan2.setVisibility(View.INVISIBLE);
-                imageViewPlan3.setVisibility(View.INVISIBLE);
-                imageViewPlan4.setVisibility(View.INVISIBLE);
-                imageViewPlan5.setVisibility(View.INVISIBLE);
-                imageViewPlan6.setVisibility(View.INVISIBLE);
-                imageViewPlan7.setVisibility(View.INVISIBLE);
-                imageViewPlan8.setVisibility(View.INVISIBLE);
-
-                imageViewPlan1.setBackgroundColor(0xCD000000);
-                break;
-            case 2:
-                linearLayout1.setBackgroundResource(R.drawable.background_blur_hostal);
-                linearLayout2.setVisibility(View.INVISIBLE);
-                linearLayout3.setVisibility(View.INVISIBLE);
-                linearLayout4.setVisibility(View.INVISIBLE);
-                linearLayout5.setVisibility(View.INVISIBLE);
-                linearLayout6.setVisibility(View.INVISIBLE);
-                linearLayout7.setVisibility(View.INVISIBLE);
-                linearLayout8.setVisibility(View.INVISIBLE);
-
-                imageViewPlan1.setImageResource(R.drawable.logo_hostal);
-                imageViewPlan2.setVisibility(View.INVISIBLE);
-                imageViewPlan3.setVisibility(View.INVISIBLE);
-                imageViewPlan4.setVisibility(View.INVISIBLE);
-                imageViewPlan5.setVisibility(View.INVISIBLE);
-                imageViewPlan6.setVisibility(View.INVISIBLE);
-                imageViewPlan7.setVisibility(View.INVISIBLE);
-                imageViewPlan8.setVisibility(View.INVISIBLE);
-
-                imageViewPlan1.setBackgroundColor(0xCDFFFFFF);
-                break;
-        }
     }
 
     @Override
@@ -389,10 +435,6 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
         startActivity(intentDBManager);
     }
 
-    public void abrirIntent(View v){
-        Intent intent2 = new Intent(this, DatabaseManager.class);
-        startActivity(intent2);
-    }
 }
 
 

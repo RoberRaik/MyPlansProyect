@@ -37,13 +37,14 @@
             android:background="#F44336"
             android:entries="@array/Spinner_categories"
             android:textColor="#FFFFFF"
-            android:tooltipText="Elige el tipo de plan que quieres" />
+            android:tooltipText="Elige el tipo de plan que quieres"
+            android:visibility="gone" />
 
         <ScrollView
-            android:id="@+id/scrollViewPlans"
+            android:id="@+id/scrollViewPlansSeseñaViejo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,15 +52,15 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout1"
+                    android:id="@+id/planSeseñaViejo1"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_templodelsol"
+                    android:background="@drawable/background_blur_1001"
                     android:onClick="buttonInfoPlan1"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan1"
+                        android:id="@+id/imageViewPlanSeseñaViejo1"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CD000000"
@@ -70,15 +71,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout2"
+                    android:id="@+id/planSeseñaViejo2"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_telepizza"
+                    android:background="@drawable/background_blur_1002"
                     android:onClick="buttonInfoPlan2"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan2"
+                        android:id="@+id/imageViewPlanSeseñaViejo2"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CCF40000"
@@ -89,15 +90,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout3"
+                    android:id="@+id/planSeseñaViejo3"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_nuova"
+                    android:background="@drawable/background_blur_1003"
                     android:onClick="buttonInfoPlan3"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan3"
+                        android:id="@+id/imageViewPlanSeseñaViejo3"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CCFFFFFF"
@@ -107,15 +108,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout4"
+                    android:id="@+id/planSeseñaViejo4"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_vega"
+                    android:background="@drawable/background_blur_1004"
                     android:onClick="buttonInfoPlan4"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan4"
+                        android:id="@+id/imageViewPlanSeseñaViejo4"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CD222222"
@@ -125,15 +126,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout5"
+                    android:id="@+id/planSeseñaViejo5"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_forchettone"
+                    android:background="@drawable/background_blur_1005"
                     android:onClick="buttonInfoPlan5"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan5"
+                        android:id="@+id/imageViewPlanSeseñaViejo5"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CDC6AB5C"
@@ -143,15 +144,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout6"
+                    android:id="@+id/planSeseñaViejo6"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_cabalito"
+                    android:background="@drawable/background_blur_1006"
                     android:onClick="buttonInfoPlan6"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan6"
+                        android:id="@+id/imageViewPlanSeseñaViejo6"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CD000000"
@@ -161,15 +162,15 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout7"
+                    android:id="@+id/planSeseñaViejo7"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_hongkong"
+                    android:background="@drawable/background_blur_1007"
                     android:onClick="buttonInfoPlan7"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan7"
+                        android:id="@+id/imageViewPlanSeseñaViejo7"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CCF40000"
@@ -179,15 +180,336 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout8"
+                    android:id="@+id/planSeseñaViejo8"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@drawable/background_blur_asador"
+                    android:background="@drawable/background_blur_1008"
                     android:onClick="buttonInfoPlan8"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageViewPlan8"
+                        android:id="@+id/imageViewPlanSeseñaViejo8"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CDFFFFFF"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_asador" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/scrollViewPlansQuiñon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_2001"
+                    android:onClick="buttonInfoPlan1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon1"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD471313"
+                        android:contentDescription="@string/img"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo_rollodelpollo" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_2002"
+                    android:onClick="buttonInfoPlan2"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon2"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CCE4B02B"
+                        android:contentDescription="@string/img"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo_saboryfusion" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_2003"
+                    android:onClick="buttonInfoPlan3"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon3"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CCFFFFFF"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_donerkebab" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="buttonInfoPlan4"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon4"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD222222"
+                        android:contentDescription="@string/img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon5"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="buttonInfoPlan5"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon5"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CDC6AB5C"
+                        android:contentDescription="@string/img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon6"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="buttonInfoPlan6"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon6"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD000000"
+                        android:contentDescription="@string/img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon7"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="buttonInfoPlan7"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon7"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CCF40000"
+                        android:contentDescription="@string/img" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planQuiñon8"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:onClick="buttonInfoPlan8"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanQuiñon8"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CDFFFFFF"
+                        android:contentDescription="@string/img" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/scrollViewPlansSeseñaNuevo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_3001"
+                    android:onClick="buttonInfoPlan1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo1"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD000000"
+                        android:contentDescription="@string/img"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo_asturiana" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_3002"
+                    android:onClick="buttonInfoPlan2"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo2"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CCF40000"
+                        android:contentDescription="@string/img"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/logo_huiming" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_3003"
+                    android:onClick="buttonInfoPlan3"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo3"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#8C58C0D5"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_pollodeoro" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_1004"
+                    android:onClick="buttonInfoPlan4"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo4"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD222222"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_vega" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo5"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_1005"
+                    android:onClick="buttonInfoPlan5"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo5"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CDC6AB5C"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_forchettone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo6"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_1006"
+                    android:onClick="buttonInfoPlan6"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo6"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CD000000"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_cabalito" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo7"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_1007"
+                    android:onClick="buttonInfoPlan7"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo7"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:background="#CCF40000"
+                        android:contentDescription="@string/img"
+                        app:srcCompat="@drawable/logo_hongkong" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/planSeseñaNuevo8"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/background_blur_1008"
+                    android:onClick="buttonInfoPlan8"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:id="@+id/imageViewPlanSeseñaNuevo8"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:background="#CDFFFFFF"
@@ -217,12 +539,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_backup_black_18dp" />
 
+    <ImageButton
+        android:id="@+id/imageButtonRefresh"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="380dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/img"
+        android:onClick="refresh"
+        android:scaleType="centerInside"
+        android:tint="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_backup_black_18dp" />
+
     <TextView
         android:id="@+id/textViewPermission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/permission"
         android:textColor="#00FFFFFF"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -234,7 +573,17 @@
         android:textColor="#FFFFFF"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/location"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

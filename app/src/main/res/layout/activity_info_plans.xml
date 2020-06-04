@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_templodelsol" />
+        app:srcCompat="@drawable/background_1001" />
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/textViewDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
         android:layout_marginTop="16dp"
@@ -151,7 +151,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/img"
-                app:srcCompat="@drawable/photo_templodelsol3" />
+                app:srcCompat="@drawable/photo_first_1001" />
 
             <ImageView
                 android:id="@+id/imageViewPhoto2"
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/img"
-                app:srcCompat="@drawable/photo_templodelsol2" />
+                app:srcCompat="@drawable/photo_second_1001" />
 
             <ImageView
                 android:id="@+id/imageViewPhoto3"
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/img"
-                app:srcCompat="@drawable/photo_templodelsol1" />
+                app:srcCompat="@drawable/photo_third_1001" />
 
         </LinearLayout>
     </ScrollView>
