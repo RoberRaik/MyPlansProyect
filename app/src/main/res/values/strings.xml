@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">MyPlans</string>
+    <string name="img"></string>
+
+    // MAIN
+    <string name="location">Localizacion</string>
+    <string name="permission">Permisos</string>
+    <string name="textViewTitle">Estás en:</string>
+    <string name="textViewSubtitle">Planes en </string>
+
+    //SPINNER ITEMS
+    <string-array name="Spinner_categories">
+        <item>Planes de Restaurantes</item>
+        <item>Planes de Pubs</item>
+        <item>Planes de Hoteles</item>
+    </string-array>
+
+    //INFOPLANS
+    <string name="title">RESTAURANTE</string>
+    <string name="description">Pequeña descripción del restaurante.</string>
+    <string name="gps">Localización: </string>
+    <string name="phone">Nº Teléfono: </string>
+    <string name="schedule">Horario: </string>
+
+    //DATABASE MANAGER
+    <string name="fieldID">ID</string>
+    <string name="fieldName">Nombre</string>
+    <string name="fieldDescription">Descripcion</string>
+    <string name="fieldGPS">Localizacion</string>
+    <string name="fieldPhone">Telefono</string>
+    <string name="fieldSchedule">Horario</string>
+    <string name="buttonSend">ENVIAR</string>
+
+</resources>
