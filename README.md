@@ -8,3 +8,5 @@ Tutorial:
 La aplicacion es muy sencilla, se deben aceptar los permisos de ubicacion para mostrar los locales en Seseña, el usuario pulsa en el local que crea correspondiente y le saldra la información de dicho local.
 
 Enlace video:
+
+Enlace APK: https://drive.google.com/file/d/1Oo5YI5OjWOHToEaetLg91ehrp8mz-3GH/view?usp=sharing
